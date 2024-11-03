@@ -5,7 +5,30 @@ const renderData = () => {
     .then((response) => response.json())
     .then((data) => {
       data.forEach((wonderData, index) => {
-        console.log(wonderData["name"]);
+        const name = wonderData["name"];
+        const location = wonderData["location"];
+        const src = wonderData["links"]["images"][0];
+
+        const card = document.createElement("div");
+
+        card.addEventListener("click", () => {
+          card.classList.toggle("show-info");
+        });
+
+        card.className = "card";
+        card.innerHTML = `
+        <img
+          src="${src}"
+          alt="${name}"
+        />
+        <div>
+          <span>${name}</span>
+          <span class="text-color-grey">${location}</span>
+          <a href="wonders.html?id=${index}">Learn More</a>
+        </div>
+        `;
+
+        container.appendChild(card);
       });
     });
 };

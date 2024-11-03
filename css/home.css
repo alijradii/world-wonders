@@ -1,0 +1,120 @@
+@keyframes scrollImage {
+  0% {
+    background-position: -400px;
+  }
+  50% {
+    background-position: +400px;
+  }
+  100% {
+    background-position: -400px;
+  }
+}
+
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),
+    url("../assets/hero-image.webp");
+  width: 100%;
+  height: 40vh;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scrollImage 30s linear infinite;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  padding: 40px;
+}
+
+.card {
+  flex: 1 1 0;
+  max-width: 340px;
+  min-width: 280px;
+  border: 1px solid white;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.5s;
+  z-index: 1;
+}
+
+.card div {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  text-align: center;
+  transition: height 0.5s;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.card:hover div {
+  height: 100%;
+  padding-top: 40%;
+}
+
+.card span {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  color: white;
+}
+
+.card a {
+  margin: 10px;
+  color: #262626;
+  text-decoration: none;
+  font-size: 14px;
+  background: white;
+  border-radius: 50px;
+  text-align: center;
+  padding: 5px 15px;
+  transition: ease 0.4s;
+}
+
+.card a:hover {
+  background-color: rgb(13, 24, 37);
+  transform: scale(1.2);
+  color: white;
+  cursor: pointer;
+}
+
+.card:hover img {
+  transform: scale(1.2);
+}
+
+.card:hover span {
+  height: 100%;
+}
+
+@media (max-width: 760px) {
+  .card.show-info div {
+    height: 100%;
+    padding-top: 40%;
+  }
+}
